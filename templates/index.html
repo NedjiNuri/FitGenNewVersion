@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FitGen - Workout Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>FitGen Workout Generator</h1>
+    <form method="POST">
+        <select name="program_type">
+            <option value="full_body">Full Body Workout</option>
+            <option value="home_exercises">Home Exercises</option>
+        </select>
+        <button type="submit">Generate Program</button>
+    </form>
+
+    {% if program %}
+        <h2>Your Program:</h2>
+        <ul>
+            {% for exercise in program %}
+                <li>{{ exercise }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
